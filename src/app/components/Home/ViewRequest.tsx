@@ -49,6 +49,7 @@ export default function ViewRequest() {
             </svg>
           </span>
           <input
+            type="password"
             className="bg-[#F1F3F6] w-[416px] h-[52.39px] rounded-lg pl-8 z-10 border-[1px] border-[#DEE7F4]"
             placeholder="Code secret"
           />
