@@ -1,49 +1,54 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Navbar from "../components/Layout/Navbar";
 import Request from "../components/Requests/Request";
 import RequestData from "../models/RequestData";
+import { formatDate } from "../utils/formatDate";
+import { currentUser2 } from "../utils/mockData";
 
 export default function Page() {
-  const requests: Array<RequestData> = [
-    {
-      id: 1,
-      prix: "120.5",
-      motif: "Achat de fournitures",
-      date: "2024-01-17",
-      status: "Validée",
-    },
-    {
-      id: 2,
-      prix: "75.2",
-      motif: "Frais de déplacement",
-      date: "2024-01-18",
-      status: "En attente",
-    },
-    {
-      id: 3,
-      prix: "200.0",
-      motif: "Services de maintenance",
-      date: "2024-01-19",
-      status: "Refusée",
-    },
-    {
-      id: 4,
-      prix: "50.8",
-      motif: "Frais de repas",
-      date: "2024-01-20",
-      status: "Validée",
-    },
-  ];
+  const [request, setRequest] = useState<RequestData[]>([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const res = await fetch("http://localhost:3030/requests", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            matricule: currentUser2?.matricule,
+            secretCode: currentUser2?.secretCode,
+          }),
+        });
+
+        const data = await res.json();
+
+        data.map((request: RequestData) => {
+          request.date = formatDate(request.date);
+        });
+
+        setRequest(data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    fetchData();
+  }, []);
 
   return (
     <>
       <Navbar />
       <div className="flex flex-col pb-10">
-        <h1 className="text-center font-bold text-5xl m-14">
-          Demandes de remboursement de ...
+        <h1 className="text-center font-bold text-4xl m-14">
+          Demandes de remboursement de {currentUser2.firstName}
         </h1>
 
         <div className="flex flex-col gap-10">
-          {requests.map((request) => (
+          {request.map((request) => (
             <div
               key={request.id}
               className="fborder-2 mx-32 py-6 px-4 rounded-lg shadow-2xl"
