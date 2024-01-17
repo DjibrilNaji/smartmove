@@ -9,7 +9,7 @@ export default function Result() {
       <Navbar />
 
       <div
-        className="flex flex-col items-center"
+        className="flex flex-col items-center color-primary"
         style={{ height: "calc(100vh - 142px)" }}
       >
         <Image
