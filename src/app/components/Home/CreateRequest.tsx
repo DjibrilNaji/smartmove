@@ -11,13 +11,13 @@ export default function CreateRequest() {
         <div className="relative">
           <div className="relative mb-4">
             <input
-              className="bg-special-gray w-[416px] h-[52.39px] rounded-lg pl-8 z-10 border-[1px] border-special-slate"
+              className="bg-special-gray w-[416px] h-[52.39px] rounded-lg pl-8 z-10 border-[1px] border-special-slate focus:outline-none"
               placeholder="Prix payé"
             />
           </div>
           <div className="relative">
             <input
-              className="bg-special-gray w-[416px] h-[52.39px] rounded-lg pl-8 z-10 border-[1px] border-special-slate"
+              className="bg-special-gray w-[416px] h-[52.39px] rounded-lg pl-8 z-10 border-[1px] border-special-slate focus:outline-none"
               placeholder="Motif du remboursement"
             />
           </div>
@@ -43,13 +43,13 @@ export default function CreateRequest() {
         </div>
         <div className="relative">
           <input
-            className="bg-special-gray w-[416px] h-[52.39px] rounded-lg pl-8 z-10 border-[1px] border-special-slate"
+            className="bg-special-gray w-[416px] h-[52.39px] rounded-lg pl-8 z-10 border-[1px] border-special-slate focus:outline-none"
             placeholder="Date"
           />
         </div>
         <div className="relative">
           <input
-            className="bg-special-gray w-[416px] h-[52.39px] rounded-lg pl-8 z-10 border-[1px] border-special-slate"
+            className="bg-special-gray w-[416px] h-[52.39px] rounded-lg pl-8 z-10 border-[1px] border-special-slate focus:outline-none"
             placeholder="Matricule employé"
           />
         </div>

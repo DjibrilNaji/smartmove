@@ -8,14 +8,14 @@ export default function FindRoute() {
         <div className="relative">
           <div className="relative mb-4">
             <input
-              className="bg-special-gray w-[416px] h-[52.39px] rounded-lg pl-8 z-10 border-[1px] border-special-slate"
+              className="bg-special-gray w-[416px] h-[52.39px] rounded-lg pl-8 z-10 border-[1px] border-special-slate focus:outline-none"
               placeholder="Ville de départ"
             />
           </div>
 
           <div className="relative">
             <input
-              className="bg-special-gray w-[416px] h-[52.39px] rounded-lg pl-8 z-10 border-[1px] border-special-slate"
+              className="bg-special-gray w-[416px] h-[52.39px] rounded-lg pl-8 z-10 border-[1px] border-special-slate focus:outline-none"
               placeholder="Ville d'arrivée"
             />
           </div>
@@ -43,14 +43,14 @@ export default function FindRoute() {
         <div className="flex gap-2">
           <div className="relative">
             <input
-              className="bg-special-gray w-[203px] h-[52.39px] rounded-lg pl-8  z-10 border-[1px] border-special-slate"
+              className="bg-special-gray w-[203px] h-[52.39px] rounded-lg pl-8  z-10 border-[1px] border-special-slate focus:outline-none"
               placeholder="Date de départ"
             />
           </div>
           <div className="relative">
             <span className="absolute z-2000 inset-y-0 left-0 flex items-center pl-2"></span>
             <input
-              className="bg-special-gray w-[203px] h-[52.39px] rounded-lg pl-8 z-10 border-[1px] border-special-slate"
+              className="bg-special-gray w-[203px] h-[52.39px] rounded-lg pl-8 z-10 border-[1px] border-special-slate focus:outline-none"
               placeholder="Date de retour"
             />
           </div>
@@ -58,7 +58,7 @@ export default function FindRoute() {
         <div className="relative">
           <input
             type="number"
-            className="bg-special-gray w-[416px] h-[52.39px] rounded-lg pl-8 pr-4 z-10 border-[1px] border-special-slate"
+            className="bg-special-gray w-[416px] h-[52.39px] rounded-lg pl-8 pr-4 z-10 border-[1px] border-special-slate focus:outline-none"
             placeholder="Nombre de passagers"
           />
         </div>
@@ -66,7 +66,7 @@ export default function FindRoute() {
           Rechercher
         </button>
         <div className="flex gap-2">
-          <input type="checkbox" className="accent-green-500" />
+          <input type="checkbox" className="accent-green-500 focus:outline-none" />
           Rechercher un logement
         </div>
       </form>

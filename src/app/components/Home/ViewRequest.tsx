@@ -9,14 +9,14 @@ export default function ViewRequest() {
       <form className="bg-white p-8 flex flex-col gap-4 shadow-slate-200 shadow-xl rounded-lg border-[1px] border-special-gray-2">
         <div className="relative">
           <input
-            className="bg-special-gray w-[416px] h-[52.39px] rounded-lg  border-[1px] border-special-slate pl-8 "
+            className="bg-special-gray w-[416px] h-[52.39px] rounded-lg  border-[1px] border-special-slate pl-8 focus:outline-none"
             placeholder="Matricule employé"
           />
         </div>
         <div className="relative">
           <input
             type="password"
-            className="bg-special-gray w-[416px] h-[52.39px] rounded-lg pl-8 z-10 border-[1px] border-special-slate"
+            className="bg-special-gray w-[416px] h-[52.39px] rounded-lg pl-8 z-10 border-[1px] border-special-slate focus:outline-none"
             placeholder="Code secret"
           />
         </div>
