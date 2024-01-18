@@ -1,0 +1,297 @@
+{
+  "train": [
+    {
+      "HeureDepart": "08:30",
+      "HeureArrivee": "12:15",
+      "HeureTotale": "03:45",
+      "VilleDepart": "Paris",
+      "VilleArrivee": "Marseille",
+      "LieuDepart": "Gare de Lyon",
+      "LieuArrivee": "Gare Saint-Charles",
+      "NombrePassagers": 2,
+      "Prix": 50,
+      "Remboursable": true
+    },
+    {
+      "HeureDepart": "10:15",
+      "HeureArrivee": "13:45",
+      "HeureTotale": "03:30",
+      "VilleDepart": "Amsterdam",
+      "VilleArrivee": "Bruxelles",
+      "LieuDepart": "Gare d'Amsterdam-Central",
+      "LieuArrivee": "Gare de Bruxelles-Midi",
+      "NombrePassagers": 3,
+      "Prix": 40,
+      "Remboursable": false
+    },
+    {
+      "HeureDepart": "14:45",
+      "HeureArrivee": "18:30",
+      "HeureTotale": "03:45",
+      "VilleDepart": "Berlin",
+      "VilleArrivee": "Prague",
+      "LieuDepart": "Gare de Berlin Hauptbahnhof",
+      "LieuArrivee": "Gare centrale de Prague",
+      "NombrePassagers": 4,
+      "Prix": 55,
+      "Remboursable": true
+    },
+    {
+      "HeureDepart": "09:20",
+      "HeureArrivee": "12:10",
+      "HeureTotale": "02:50",
+      "VilleDepart": "Barcelone",
+      "VilleArrivee": "Paris",
+      "LieuDepart": "Gare de Barcelone-Sants",
+      "LieuArrivee": "Gare de Lyon",
+      "NombrePassagers": 2,
+      "Prix": 45,
+      "Remboursable": true
+    },
+    {
+      "HeureDepart": "11:30",
+      "HeureArrivee": "15:05",
+      "HeureTotale": "03:35",
+      "VilleDepart": "Rome",
+      "VilleArrivee": "Florence",
+      "LieuDepart": "Gare de Roma Termini",
+      "LieuArrivee": "Gare di Santa Maria Novella",
+      "NombrePassagers": 5,
+      "Prix": 60,
+      "Remboursable": false
+    },
+    {
+      "HeureDepart": "13:10",
+      "HeureArrivee": "16:40",
+      "HeureTotale": "03:30",
+      "VilleDepart": "Lisbonne",
+      "VilleArrivee": "Madrid",
+      "LieuDepart": "Gare de Santa Apolónia",
+      "LieuArrivee": "Gare de Madrid Puerta de Atocha",
+      "NombrePassagers": 3,
+      "Prix": 50,
+      "Remboursable": true
+    },
+    {
+      "HeureDepart": "16:00",
+      "HeureArrivee": "20:30",
+      "HeureTotale": "04:30",
+      "VilleDepart": "Paris",
+      "VilleArrivee": "Berlin",
+      "LieuDepart": "Gare de Lyon",
+      "LieuArrivee": "Gare de Berlin Hauptbahnhof",
+      "NombrePassagers": 4,
+      "Prix": 65,
+      "Remboursable": false
+    },
+    {
+      "HeureDepart": "15:15",
+      "HeureArrivee": "18:45",
+      "HeureTotale": "03:30",
+      "VilleDepart": "Barcelone",
+      "VilleArrivee": "Marseille",
+      "LieuDepart": "Gare de Barcelone-Sants",
+      "LieuArrivee": "Gare Saint-Charles",
+      "NombrePassagers": 2,
+      "Prix": 55,
+      "Remboursable": true
+    }
+  ],
+  "avion": [
+    {
+      "HeureDepart": "10:15",
+      "HeureArrivee": "13:55",
+      "HeureTotale": "03:40",
+      "VilleDepart": "Paris",
+      "VilleArrivee": "Barcelone",
+      "LieuDepart": "Aéroport de Roissy-Charles-de-Gaulle",
+      "LieuArrivee": "Aéroport de Barcelone-El Prat",
+      "NombrePassagers": 2,
+      "Prix": 150,
+      "Remboursable": true
+    },
+    {
+      "HeureDepart": "08:30",
+      "HeureArrivee": "12:00",
+      "HeureTotale": "03:30",
+      "VilleDepart": "Marseille",
+      "VilleArrivee": "Lisbonne",
+      "LieuDepart": "Aéroport de Marseille-Provence",
+      "LieuArrivee": "Aéroport Humberto Delgado",
+      "NombrePassagers": 1,
+      "Prix": 130,
+      "Remboursable": false
+    },
+    {
+      "HeureDepart": "14:45",
+      "HeureArrivee": "17:30",
+      "HeureTotale": "02:45",
+      "VilleDepart": "Lyon",
+      "VilleArrivee": "Amsterdam",
+      "LieuDepart": "Aéroport de Lyon-Saint Exupéry",
+      "LieuArrivee": "Aéroport d'Amsterdam-Schiphol",
+      "NombrePassagers": 3,
+      "Prix": 200,
+      "Remboursable": true
+    },
+    {
+      "HeureDepart": "09:20",
+      "HeureArrivee": "12:10",
+      "HeureTotale": "02:50",
+      "VilleDepart": "Nice",
+      "VilleArrivee": "Genève",
+      "LieuDepart": "Aéroport Nice Côte d'Azur",
+      "LieuArrivee": "Aéroport de Genève",
+      "NombrePassagers": 2,
+      "Prix": 180,
+      "Remboursable": true
+    },
+    {
+      "HeureDepart": "11:30",
+      "HeureArrivee": "15:05",
+      "HeureTotale": "03:35",
+      "VilleDepart": "Bordeaux",
+      "VilleArrivee": "Berlin",
+      "LieuDepart": "Aéroport de Bordeaux-Mérignac",
+      "LieuArrivee": "Aéroport de Berlin-Tegel",
+      "NombrePassagers": 4,
+      "Prix": 250,
+      "Remboursable": false
+    },
+    {
+      "HeureDepart": "13:10",
+      "HeureArrivee": "16:40",
+      "HeureTotale": "03:30",
+      "VilleDepart": "Toulouse",
+      "VilleArrivee": "Rome",
+      "LieuDepart": "Aéroport de Toulouse-Blagnac",
+      "LieuArrivee": "Aéroport Leonardo da Vinci de Rome Fiumicino",
+      "NombrePassagers": 3,
+      "Prix": 220,
+      "Remboursable": true
+    },
+    {
+      "HeureDepart": "16:00",
+      "HeureArrivee": "20:30",
+      "HeureTotale": "04:30",
+      "VilleDepart": "Barcelone",
+      "VilleArrivee": "Paris",
+      "LieuDepart": "Aéroport de Barcelone-El Prat",
+      "LieuArrivee": "Aéroport de Roissy-Charles-de-Gaulle",
+      "NombrePassagers": 1,
+      "Prix": 180,
+      "Remboursable": false
+    },
+    {
+      "HeureDepart": "15:15",
+      "HeureArrivee": "18:45",
+      "HeureTotale": "03:30",
+      "VilleDepart": "Lisbonne",
+      "VilleArrivee": "Paris",
+      "LieuDepart": "Aéroport Humberto Delgado",
+      "LieuArrivee": "Aéroport de Roissy-Charles-de-Gaulle",
+      "NombrePassagers": 2,
+      "Prix": 200,
+      "Remboursable": true
+    }
+  ],
+  "bus": [
+    {
+      "HeureDepart": "08:00",
+      "HeureArrivee": "12:30",
+      "HeureTotale": "04:30",
+      "VilleDepart": "Paris",
+      "VilleArrivee": "Bruxelles",
+      "LieuDepart": "Gare de Paris-Bercy",
+      "LieuArrivee": "Gare de Bruxelles-Midi",
+      "NombrePassagers": 1,
+      "Prix": 25,
+      "Remboursable": true
+    },
+    {
+      "HeureDepart": "10:30",
+      "HeureArrivee": "14:45",
+      "HeureTotale": "04:15",
+      "VilleDepart": "Berlin",
+      "VilleArrivee": "Prague",
+      "LieuDepart": "Gare routière de Berlin",
+      "LieuArrivee": "Gare routière de Prague",
+      "NombrePassagers": 2,
+      "Prix": 20,
+      "Remboursable": false
+    },
+    {
+      "HeureDepart": "12:15",
+      "HeureArrivee": "16:45",
+      "HeureTotale": "04:30",
+      "VilleDepart": "Madrid",
+      "VilleArrivee": "Barcelone",
+      "LieuDepart": "Gare routière de Madrid",
+      "LieuArrivee": "Gare routière de Barcelone",
+      "NombrePassagers": 5,
+      "Prix": 30,
+      "Remboursable": true
+    },
+    {
+      "HeureDepart": "09:45",
+      "HeureArrivee": "13:15",
+      "HeureTotale": "03:30",
+      "VilleDepart": "Rome",
+      "VilleArrivee": "Florence",
+      "LieuDepart": "Gare routière de Rome",
+      "LieuArrivee": "Gare routière de Florence",
+      "NombrePassagers": 1,
+      "Prix": 22,
+      "Remboursable": false
+    },
+    {
+      "HeureDepart": "14:00",
+      "HeureArrivee": "18:30",
+      "HeureTotale": "04:30",
+      "VilleDepart": "Lisbonne",
+      "VilleArrivee": "Porto",
+      "LieuDepart": "Gare routière de Lisbonne",
+      "LieuArrivee": "Gare routière de Porto",
+      "NombrePassagers": 4,
+      "Prix": 28,
+      "Remboursable": true
+    },
+    {
+      "HeureDepart": "11:30",
+      "HeureArrivee": "15:45",
+      "HeureTotale": "04:15",
+      "VilleDepart": "Amsterdam",
+      "VilleArrivee": "Bruxelles",
+      "LieuDepart": "Gare routière d'Amsterdam",
+      "LieuArrivee": "Gare de Bruxelles-Midi",
+      "NombrePassagers": 2,
+      "Prix": 26,
+      "Remboursable": false
+    },
+    {
+      "HeureDepart": "15:30",
+      "HeureArrivee": "19:45",
+      "HeureTotale": "04:15",
+      "VilleDepart": "Varsovie",
+      "VilleArrivee": "Prague",
+      "LieuDepart": "Gare routière de Varsovie",
+      "LieuArrivee": "Gare routière de Prague",
+      "NombrePassagers": 1,
+      "Prix": 24,
+      "Remboursable": true
+    },
+    {
+      "HeureDepart": "13:00",
+      "HeureArrivee": "17:30",
+      "HeureTotale": "04:30",
+      "VilleDepart": "Athènes",
+      "VilleArrivee": "Thessalonique",
+      "LieuDepart": "Gare routière d'Athènes",
+      "LieuArrivee": "Gare routière de Thessalonique",
+      "NombrePassagers": 3,
+      "Prix": 32,
+      "Remboursable": false
+    }
+  ]
+}
+
