@@ -2,10 +2,10 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { ChangeEvent, FormEvent, useState } from "react";
-import circle from "../../../../public/svg/circle.svg";
-import dateIcon from "../../../../public/svg/date.svg";
-import person from "../../../../public/svg/person.svg";
-import position from "../../../../public/svg/position.svg";
+import circle from "/public/svg/circle.svg";
+import dateIcon from "/public/svg/date.svg";
+import person from "/public/svg/person.svg";
+import position from "/public/svg/position.svg";
 
 export default function CreateRequest() {
   const [price, setPrice] = useState<string>("");

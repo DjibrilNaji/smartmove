@@ -5,7 +5,7 @@ import { formatDate } from "@/app/utils/formatDate";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { ChangeEvent, FormEvent, useState } from "react";
-import person from "../../../../public/svg/person.svg";
+import person from "/public/svg/person.svg";
 
 export default function ViewRequest() {
   const [matricule, setMatricule] = useState<string>("");
@@ -43,7 +43,7 @@ export default function ViewRequest() {
       sessionStorage.setItem("request", JSON.stringify(data.requests));
       sessionStorage.setItem("user", JSON.stringify(data.firstName));
 
-      router.push("/requests", { scroll: false });
+      router.push("/my-requests", { scroll: false });
     } catch (error) {
       console.log(error);
     }

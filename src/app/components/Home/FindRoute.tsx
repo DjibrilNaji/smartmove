@@ -1,9 +1,9 @@
 import Image from "next/image";
-import arrowSwitch from "../../../../public/svg/arrow-switch.svg";
-import circle from "../../../../public/svg/circle.svg";
-import date from "../../../../public/svg/date.svg";
-import person from "../../../../public/svg/person.svg";
-import position from "../../../../public/svg/position.svg";
+import arrowSwitch from "/public/svg/arrow-switch.svg";
+import circle from "/public/svg/circle.svg";
+import date from "/public/svg/date.svg";
+import person from "/public/svg/person.svg";
+import position from "/public/svg/position.svg";
 
 export default function FindRoute() {
   return (
