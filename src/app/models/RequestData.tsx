@@ -1,7 +1,8 @@
 export default interface RequestData {
   id: number;
-  prix: string;
+  price: number;
   motif: string;
   date: string;
   status: string;
+  matricule: string;
 }
