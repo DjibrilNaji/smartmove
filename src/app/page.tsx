@@ -20,7 +20,7 @@ export default function Home() {
           fill="#E7EEF6"
         />
       </svg>
-      <div className="flex flex-col xl:flex-row xl:ml-44 lg:ml-36 gap-8">
+      <div className="flex flex-col xl:flex-row justify-center gap-8">
         <ViewRequest />
         <CreateRequest />
         <FindRoute />
