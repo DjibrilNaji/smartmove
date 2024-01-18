@@ -7,7 +7,7 @@ export default function ResultRoutePage() {
   return (
     <div className="bg-[#ECF4FD]">
       <Navbar />
-      <div className="border-2  border-black mx-96 mt-10 p-8">
+      <div className=" mx-96 mt-10 p-8">
         <Date />
         <FiltreRoute />
         <ResultRoute />
