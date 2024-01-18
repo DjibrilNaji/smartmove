@@ -5,9 +5,9 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'SmartMove',
-  description: 'Application to manage your travel and reimbursements',
-}
+  title: "SmartMove",
+  description: "Application to manage your travel and reimbursements",
+};
 
 export default function RootLayout({
   children,
