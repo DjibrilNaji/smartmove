@@ -1,3 +1,6 @@
+import Image from "next/image";
+import person from "../../../../public/svg/person.svg";
+
 export default function ViewRequest() {
   return (
     <div className="flex flex-col items-center">
@@ -8,12 +11,18 @@ export default function ViewRequest() {
       </div>
       <form className="bg-white p-8 flex flex-col gap-4 shadow-slate-200 shadow-xl rounded-lg border-[1px] border-special-gray-2">
         <div className="relative">
+          <span className="absolute flex inset-y-0 left-0 pl-2">
+            <Image priority src={person} alt="Banniere" />
+          </span>
           <input
             className="bg-special-gray w-[416px] h-[52.39px] rounded-lg  border-[1px] border-special-slate pl-8 focus:outline-none"
             placeholder="Matricule employé"
           />
         </div>
         <div className="relative">
+          <span className="absolute flex inset-y-0 left-0 pl-2">
+            <Image priority src={person} alt="Banniere" />
+          </span>
           <input
             type="password"
             className="bg-special-gray w-[416px] h-[52.39px] rounded-lg pl-8 z-10 border-[1px] border-special-slate focus:outline-none"
