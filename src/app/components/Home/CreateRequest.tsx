@@ -7,17 +7,17 @@ export default function CreateRequest() {
           remboursement
         </p>
       </div>
-      <form className="bg-white p-8 flex flex-col gap-4 shadow-slate-200 shadow-xl rounded-lg border-[1px] border-[#F1F2F6]">
+      <form className="bg-white p-8 flex flex-col gap-4 shadow-slate-200 shadow-xl rounded-lg border-[1px] border-special-gray-2">
         <div className="relative">
           <div className="relative mb-4">
             <input
-              className="bg-[#F1F3F6] w-[416px] h-[52.39px] rounded-lg pl-8 z-10 border-[1px] border-[#DEE7F4]"
+              className="bg-special-gray w-[416px] h-[52.39px] rounded-lg pl-8 z-10 border-[1px] border-special-slate"
               placeholder="Prix payé"
             />
           </div>
           <div className="relative">
             <input
-              className="bg-[#F1F3F6] w-[416px] h-[52.39px] rounded-lg pl-8 z-10 border-[1px] border-[#DEE7F4]"
+              className="bg-special-gray w-[416px] h-[52.39px] rounded-lg pl-8 z-10 border-[1px] border-special-slate"
               placeholder="Motif du remboursement"
             />
           </div>
@@ -43,20 +43,20 @@ export default function CreateRequest() {
         </div>
         <div className="relative">
           <input
-            className="bg-[#F1F3F6] w-[416px] h-[52.39px] rounded-lg pl-8 z-10 border-[1px] border-[#DEE7F4]"
+            className="bg-special-gray w-[416px] h-[52.39px] rounded-lg pl-8 z-10 border-[1px] border-special-slate"
             placeholder="Date"
           />
         </div>
         <div className="relative">
           <input
-            className="bg-[#F1F3F6] w-[416px] h-[52.39px] rounded-lg pl-8 z-10 border-[1px] border-[#DEE7F4]"
+            className="bg-special-gray w-[416px] h-[52.39px] rounded-lg pl-8 z-10 border-[1px] border-special-slate"
             placeholder="Matricule employé"
           />
         </div>
         <button className="bg-black text-white w-[416px] h-[35px] p-[8px 24px 7px 24px] flex justify-center items-center rounded-lg font-semibold">
           Ajouter des pièces jointes ( reçu, facture )
         </button>
-        <button className="bg-[#FFD720] p-[15px 139px 15px 44px;] h-12 rounded-lg font-semibold justify-center flex items-center">
+        <button className="bg-special-yellow p-[15px 139px 15px 44px;] h-12 rounded-lg font-semibold justify-center flex items-center">
           Faire la demande
         </button>
       </form>

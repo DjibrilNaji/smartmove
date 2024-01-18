@@ -4,18 +4,18 @@ export default function FindRoute() {
       <div className="m-4 text-center mb-10">
         <p className="font-semibold">Rechercher un trajet</p>
       </div>
-      <form className="bg-white p-8 flex flex-col gap-4 shadow-slate-200 shadow-xl rounded-lg border-[1px] border-[#F1F2F6]">
+      <form className="bg-white p-8 flex flex-col gap-4 shadow-slate-200 shadow-xl rounded-lg border-[1px] border-special-gray-2">
         <div className="relative">
           <div className="relative mb-4">
             <input
-              className="bg-[#F1F3F6] w-[416px] h-[52.39px] rounded-lg pl-8  z-10 border-[1px] border-[#DEE7F4]"
+              className="bg-special-gray w-[416px] h-[52.39px] rounded-lg pl-8 z-10 border-[1px] border-special-slate"
               placeholder="Ville de départ"
             />
           </div>
 
           <div className="relative">
             <input
-              className="bg-[#F1F3F6] w-[416px] h-[52.39px] rounded-lg pl-8  z-10 border-[1px] border-[#DEE7F4]"
+              className="bg-special-gray w-[416px] h-[52.39px] rounded-lg pl-8 z-10 border-[1px] border-special-slate"
               placeholder="Ville d'arrivée"
             />
           </div>
@@ -43,14 +43,14 @@ export default function FindRoute() {
         <div className="flex gap-2">
           <div className="relative">
             <input
-              className="bg-[#F1F3F6] w-[203px] h-[52.39px] rounded-lg pl-8  z-10 border-[1px] border-[#DEE7F4]"
+              className="bg-special-gray w-[203px] h-[52.39px] rounded-lg pl-8  z-10 border-[1px] border-special-slate"
               placeholder="Date de départ"
             />
           </div>
           <div className="relative">
             <span className="absolute z-2000 inset-y-0 left-0 flex items-center pl-2"></span>
             <input
-              className="bg-[#F1F3F6] w-[203px] h-[52.39px] rounded-lg pl-8 z-10 border-[1px] border-[#DEE7F4]"
+              className="bg-special-gray w-[203px] h-[52.39px] rounded-lg pl-8 z-10 border-[1px] border-special-slate"
               placeholder="Date de retour"
             />
           </div>
@@ -58,11 +58,11 @@ export default function FindRoute() {
         <div className="relative">
           <input
             type="number"
-            className="bg-[#F1F3F6] w-[416px] h-[52.39px] rounded-lg pl-8 pr-4 z-10 border-[1px] border-[#DEE7F4]"
+            className="bg-special-gray w-[416px] h-[52.39px] rounded-lg pl-8 pr-4 z-10 border-[1px] border-special-slate"
             placeholder="Nombre de passagers"
           />
         </div>
-        <button className="bg-[#FFD720] p-[15px 139px 15px 44px;] h-12 rounded-lg font-semibold justify-center flex items-center">
+        <button className="bg-special-yellow p-[15px 139px 15px 44px;] h-12 rounded-lg font-semibold justify-center flex items-center">
           Rechercher
         </button>
         <div className="flex gap-2">
