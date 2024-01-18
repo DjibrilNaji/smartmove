@@ -11,7 +11,7 @@ export default function Home() {
       <Navbar />
       <Image priority src={banniere} alt="Banniere" />
 
-      <div className="flex flex-col xl:flex-row justify-center gap-8">
+      <div className="flex flex-col xl:flex-row justify-center gap-8 mb-10">
         <ViewRequest />
         <CreateRequest />
         <FindRoute />

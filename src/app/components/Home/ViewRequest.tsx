@@ -1,10 +1,11 @@
 "use client";
 
+import FormData from "@/app/models/FormData";
 import RequestData from "@/app/models/RequestData";
 import { formatDate } from "@/app/utils/formatDate";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { ChangeEvent, FormEvent, useState } from "react";
+import { FormEvent, useState } from "react";
+import Form from "./HomeForm/Form";
 import person from "/public/svg/person.svg";
 
 export default function ViewRequest() {
@@ -54,54 +55,30 @@ export default function ViewRequest() {
     fetchData();
   };
 
+  const viewRequests: Array<FormData> = [
+    {
+      placeholder: "Matricule employé",
+      icon: person,
+      alt: "Personne",
+      value: matricule,
+      setField: setMatricule,
+    },
+    {
+      placeholder: "Code secret",
+      icon: person,
+      alt: "Personne",
+      value: secretCode,
+      setField: setSecretCode,
+    },
+  ];
+
   return (
-    <div className="flex flex-col items-center">
-      <div className="m-4 text-center">
-        <p className="font-semibold">
-          Consulter mes demandes de <br /> remboursement
-        </p>
-      </div>
-      <form
-        onSubmit={handleSubmit}
-        className="bg-white p-8 flex flex-col gap-4 shadow-slate-200 shadow-xl rounded-lg border-[1px] border-special-gray-2"
-      >
-        <div className="relative">
-          <span className="absolute flex inset-y-0 left-0 pl-2">
-            <Image priority src={person} alt="Banniere" />
-          </span>
-          <input
-            className="bg-special-gray w-[416px] h-[52.39px] rounded-lg  border-[1px] border-special-slate pl-8 focus:outline-none"
-            placeholder="Matricule employé"
-            value={matricule}
-            onChange={(event: ChangeEvent<HTMLInputElement>) =>
-              setMatricule(event.target.value)
-            }
-          />
-        </div>
-        <div className="relative">
-          <span className="absolute flex inset-y-0 left-0 pl-2">
-            <Image priority src={person} alt="Banniere" />
-          </span>
-          <input
-            type="password"
-            className="bg-special-gray w-[416px] h-[52.39px] rounded-lg pl-8 z-10 border-[1px] border-special-slate focus:outline-none"
-            placeholder="Code secret"
-            value={secretCode}
-            onChange={(event: ChangeEvent<HTMLInputElement>) =>
-              setSecretCode(event.target.value)
-            }
-          />
-        </div>
-
-        <p className="text-red-500 text-sm font-bold">{error}</p>
-
-        <button
-          type="submit"
-          className="bg-special-yellow p-[15px 139px 15px 44px;] h-12 rounded-lg font-semibold justify-center flex items-center"
-        >
-          Rechercher
-        </button>
-      </form>
-    </div>
+    <Form
+      title="Consulter mes demandes de remboursement"
+      handleSubmit={handleSubmit}
+      error={error}
+      fields={viewRequests}
+      buttonName="Rechercher"
+    />
   );
 }
