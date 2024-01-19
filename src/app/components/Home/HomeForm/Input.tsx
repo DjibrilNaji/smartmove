@@ -27,6 +27,7 @@ export default function Input({
           placeholder={placeholder}
           type={type}
           value={value}
+          min={0}
           onChange={(event: ChangeEvent<HTMLInputElement>) =>
             setObject(event.target.value)
           }
