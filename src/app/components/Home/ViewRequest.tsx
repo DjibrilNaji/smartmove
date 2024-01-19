@@ -2,6 +2,7 @@
 
 import FormData from "@/app/models/FormData";
 import RequestData from "@/app/models/RequestData";
+import routes from "@/app/routes";
 import { formatDate } from "@/app/utils/formatDate";
 import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
@@ -42,9 +43,9 @@ export default function ViewRequest() {
       });
 
       sessionStorage.setItem("request", JSON.stringify(data.requests));
-      sessionStorage.setItem("user", JSON.stringify(data.firstName));
+      sessionStorage.setItem("user", JSON.stringify(data.user));
 
-      router.push("/my-requests", { scroll: false });
+      router.push(routes.my_requests, { scroll: true });
     } catch (error) {
       console.log(error);
     }
