@@ -1,91 +1,90 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/no-unescaped-entities */
-"use client"
-import Navbar from "../components/Layout/Navbar"
-import { useState, useEffect } from "react"
-import data from "../../../public/json/data.json"
-import Image from "next/image"
-import routes from "../routes"
-import arrowblue from "../../../public/svg/arrowblue.svg"
-import depart from "../../../public/svg/depart.svg"
-import arrive from "../../../public/svg/arrive.svg"
-import passagers from "../../../public/svg/passagers.svg"
-import calendar from "../../../public/svg/calendar.svg"
-import train from "../../../public/svg/train.svg"
-import avion from "../../../public/svg/avion.svg"
-import bus from "../../../public/svg/bus.svg"
-import oui from "../../../public/svg/oui.svg"
-import icon from "../../../public/svg/icon.svg"
-import Temp from "../../../public/svg/Temp.svg"
+"use client";
+import Image from "next/image";
+import { useState } from "react";
+import data from "../../../public/json/data.json";
+import Temp from "../../../public/svg/Temp.svg";
+import arrive from "../../../public/svg/arrive.svg";
+import arrowblue from "../../../public/svg/arrowblue.svg";
+import avion from "../../../public/svg/avion.svg";
+import bus from "../../../public/svg/bus.svg";
+import depart from "../../../public/svg/depart.svg";
+import icon from "../../../public/svg/icon.svg";
+import oui from "../../../public/svg/oui.svg";
+import passagers from "../../../public/svg/passagers.svg";
+import train from "../../../public/svg/train.svg";
+import Navbar from "../components/Layout/Navbar";
+import routes from "../routes";
 
 interface TransportData {
-  HeureDepart: string
-  HeureArrivee: string
-  HeureTotale: string
-  VilleDepart: string
-  VilleArrivee: string
-  LieuDepart?: string
-  LieuArrivee?: string
-  NombrePassagers: number
-  Prix: number
-  Remboursable: boolean
-  [key: string]: any
+  HeureDepart: string;
+  HeureArrivee: string;
+  HeureTotale: string;
+  VilleDepart: string;
+  VilleArrivee: string;
+  LieuDepart?: string;
+  LieuArrivee?: string;
+  NombrePassagers: number;
+  Prix: number;
+  Remboursable: boolean;
+  [key: string]: any;
 }
 
 interface TransportTypes {
-  [key: string]: TransportData[]
+  [key: string]: TransportData[];
 }
 
 export default function Result() {
-  const [villeDepart, setVilleDepart] = useState("")
-  const [villeArrivee, setVilleArrivee] = useState("")
-  const [passengerCount, setPassengerCount] = useState(1)
-  const [formattedDateDepart, setFormattedDateDepart] = useState("")
-  const [formattedDateArrivee, setFormattedDateArrivee] = useState("")
-  const [searchResults, setSearchResults] = useState<TransportData[]>([])
-  const [typeTransport, setTypeTransport] = useState<string>("")
-  const [activeTransport, setActiveTransport] = useState<null | string>(null)
-  const [selectedButton, setSelectedButton] = useState(1)
-  const [prixMinimBus, setPrixMinimBus] = useState("")
-  const [prixMinimAvion, setPrixMinimAvion] = useState("")
-  const [prixMinimTrain, setPrixMinimTrain] = useState("")
-  
-  const [heureMinimBus, setHeureMinimBus] = useState("")
-  const [heureMinimAvion, setHeureMinimAvion] = useState("")
-  const [heureMinimTrain, setHeureMinimTrain] = useState("")
+  const [villeDepart, setVilleDepart] = useState("");
+  const [villeArrivee, setVilleArrivee] = useState("");
+  const [passengerCount, setPassengerCount] = useState(1);
+  const [formattedDateDepart, setFormattedDateDepart] = useState("");
+  const [formattedDateArrivee, setFormattedDateArrivee] = useState("");
+  const [searchResults, setSearchResults] = useState<TransportData[]>([]);
+  const [typeTransport, setTypeTransport] = useState<string>("");
+  const [activeTransport, setActiveTransport] = useState<null | string>(null);
+  const [selectedButton, setSelectedButton] = useState(1);
+  const [prixMinimBus, setPrixMinimBus] = useState("");
+  const [prixMinimAvion, setPrixMinimAvion] = useState("");
+  const [prixMinimTrain, setPrixMinimTrain] = useState("");
+
+  const [heureMinimBus, setHeureMinimBus] = useState("");
+  const [heureMinimAvion, setHeureMinimAvion] = useState("");
+  const [heureMinimTrain, setHeureMinimTrain] = useState("");
 
   const formatDate = (dateString: string) => {
     const options: Intl.DateTimeFormatOptions = {
       weekday: "short",
       day: "numeric",
       month: "short",
-    }
-    return new Date(dateString).toLocaleDateString("fr-FR", options)
-  }
+    };
+    return new Date(dateString).toLocaleDateString("fr-FR", options);
+  };
 
   const handleDateDepartChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
-    setFormattedDateDepart(formatDate(event.target.value))
-  }
+    setFormattedDateDepart(formatDate(event.target.value));
+  };
 
   const handleDateArriveeChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
-    setFormattedDateArrivee(formatDate(event.target.value))
-  }
+    setFormattedDateArrivee(formatDate(event.target.value));
+  };
 
   const handlePassengerChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
-    const value = parseInt(event.target.value, 10)
-    setPassengerCount(isNaN(value) ? 0 : value)
-  }
+    const value = parseInt(event.target.value, 10);
+    setPassengerCount(isNaN(value) ? 0 : value);
+  };
 
   const handleSwitchCities = () => {
-    setVilleDepart(villeArrivee)
-    setVilleArrivee(villeDepart)
-  }
+    setVilleDepart(villeArrivee);
+    setVilleArrivee(villeDepart);
+  };
 
   const calculAllMinimPrice = () => {
     const resultsForTrain =
@@ -93,28 +92,28 @@ export default function Result() {
         (info: TransportData) =>
           info.VilleDepart.toLowerCase() === villeDepart.toLowerCase() &&
           info.VilleArrivee.toLowerCase() === villeArrivee.toLowerCase()
-      ) || []
+      ) || [];
 
-    setPrixMinimTrain(calculerPrixLePlusBas(resultsForTrain))
+    setPrixMinimTrain(calculerPrixLePlusBas(resultsForTrain));
 
     const resultsForAvion =
       (data as TransportTypes)["avion"]?.filter(
         (info: TransportData) =>
           info.VilleDepart.toLowerCase() === villeDepart.toLowerCase() &&
           info.VilleArrivee.toLowerCase() === villeArrivee.toLowerCase()
-      ) || []
+      ) || [];
 
-    setPrixMinimAvion(calculerPrixLePlusBas(resultsForAvion))
+    setPrixMinimAvion(calculerPrixLePlusBas(resultsForAvion));
 
     const resultsForBus =
       (data as TransportTypes)["bus"]?.filter(
         (info: TransportData) =>
           info.VilleDepart.toLowerCase() === villeDepart.toLowerCase() &&
           info.VilleArrivee.toLowerCase() === villeArrivee.toLowerCase()
-      ) || []
+      ) || [];
 
-    setPrixMinimBus(calculerPrixLePlusBas(resultsForBus))
-  }
+    setPrixMinimBus(calculerPrixLePlusBas(resultsForBus));
+  };
 
   const calculAllMinimHours = () => {
     const resultsForTrain =
@@ -122,97 +121,97 @@ export default function Result() {
         (info: TransportData) =>
           info.VilleDepart.toLowerCase() === villeDepart.toLowerCase() &&
           info.VilleArrivee.toLowerCase() === villeArrivee.toLowerCase()
-      ) || []
+      ) || [];
 
-    setHeureMinimTrain(calculerHeureTotaleLaPlusBasse(resultsForTrain))
+    setHeureMinimTrain(calculerHeureTotaleLaPlusBasse(resultsForTrain));
 
     const resultsForAvion =
       (data as TransportTypes)["avion"]?.filter(
         (info: TransportData) =>
           info.VilleDepart.toLowerCase() === villeDepart.toLowerCase() &&
           info.VilleArrivee.toLowerCase() === villeArrivee.toLowerCase()
-      ) || []
+      ) || [];
 
-    setHeureMinimAvion(calculerHeureTotaleLaPlusBasse(resultsForAvion))
+    setHeureMinimAvion(calculerHeureTotaleLaPlusBasse(resultsForAvion));
 
     const resultsForBus =
       (data as TransportTypes)["bus"]?.filter(
         (info: TransportData) =>
           info.VilleDepart.toLowerCase() === villeDepart.toLowerCase() &&
           info.VilleArrivee.toLowerCase() === villeArrivee.toLowerCase()
-      ) || []
+      ) || [];
 
-    setHeureMinimBus(calculerHeureTotaleLaPlusBasse(resultsForBus))
-  }
+    setHeureMinimBus(calculerHeureTotaleLaPlusBasse(resultsForBus));
+  };
 
   const handleSearchForm = () => {
-    setActiveTransport("train")
+    setActiveTransport("train");
 
     const results =
       (data as TransportTypes)["train"]?.filter(
         (info: TransportData) =>
           info.VilleDepart.toLowerCase() === villeDepart.toLowerCase() &&
           info.VilleArrivee.toLowerCase() === villeArrivee.toLowerCase()
-      ) || []
+      ) || [];
 
-    calculAllMinimPrice()
-    calculAllMinimHours()
-    setSearchResults(results)
-  }
+    calculAllMinimPrice();
+    calculAllMinimHours();
+    setSearchResults(results);
+  };
 
   const handleSearch = (type: string) => {
-    setActiveTransport(type)
+    setActiveTransport(type);
 
     const results =
       (data as TransportTypes)[type]?.filter(
         (info: TransportData) =>
           info.VilleDepart.toLowerCase() === villeDepart.toLowerCase() &&
           info.VilleArrivee.toLowerCase() === villeArrivee.toLowerCase()
-      ) || []
+      ) || [];
 
-    calculAllMinimPrice()
-    calculAllMinimHours()
-    setSearchResults(results)
-  }
+    calculAllMinimPrice();
+    calculAllMinimHours();
+    setSearchResults(results);
+  };
 
   const calculerPrixLePlusBas = (results: TransportData[]) => {
     if (results.length > 0) {
-      const prixMin = Math.min(...results.map((info) => info.Prix))
-      return `${prixMin}€`
+      const prixMin = Math.min(...results.map((info) => info.Prix));
+      return `${prixMin}€`;
     }
-    return "Aucun résultat"
-  }
+    return "Aucun résultat";
+  };
 
   const calculerHeureTotaleLaPlusBasse = (results: TransportData[]) => {
     if (results.length > 0) {
       const heuresTotalesEnMinutes = results.map((info) => {
-        const [heures, minutes] = info.HeureTotale.split(":").map(Number)
-        return heures * 60 + minutes
-      })
+        const [heures, minutes] = info.HeureTotale.split(":").map(Number);
+        return heures * 60 + minutes;
+      });
 
       if (heuresTotalesEnMinutes.every((heure) => !isNaN(heure))) {
-        const heureTotaleMinEnMinutes = Math.min(...heuresTotalesEnMinutes)
-        const heuresMin = Math.floor(heureTotaleMinEnMinutes / 60)
-        const minutesMin = heureTotaleMinEnMinutes % 60
-        return `${heuresMin}h${minutesMin}`
+        const heureTotaleMinEnMinutes = Math.min(...heuresTotalesEnMinutes);
+        const heuresMin = Math.floor(heureTotaleMinEnMinutes / 60);
+        const minutesMin = heureTotaleMinEnMinutes % 60;
+        return `${heuresMin}h${minutesMin}`;
       } else {
         console.error(
           "Certaines valeurs de HeureTotale ne sont pas des nombres valides :",
           heuresTotalesEnMinutes
-        )
-        return "Erreur"
+        );
+        return "Erreur";
       }
     }
-    return ""
-  }
+    return "";
+  };
 
   const handleDateChange = (dayOffset: number) => {
-    const currentDate = new Date()
-    currentDate.setDate(currentDate.getDate() + dayOffset)
+    const currentDate = new Date();
+    currentDate.setDate(currentDate.getDate() + dayOffset);
 
-    const formattedDate = currentDate.toISOString().split("T")[0]
-    setFormattedDateDepart(formatDate(formattedDate))
-  }
+    const formattedDate = currentDate.toISOString().split("T")[0];
+    setFormattedDateDepart(formatDate(formattedDate));
+  };
 
   return (
     <>
@@ -231,23 +230,23 @@ export default function Result() {
           <form className="w-96 p-8 bg-white border border-gray-300 rounded-lg shadow-md">
             {/* Vos champs de formulaire ici */}
             <div className="relative">
-             <div className="mb-4 relative">
-              <span className="absolute inset-y-0 left-0 flex items-center pl-2">
-                <Image priority src={depart} alt={""} />
-              </span>
-              <input
-                type="text"
-                id="villeDepart"
-                placeholder="Ville de départ"
-                value={villeDepart}
-                onChange={(e) => setVilleDepart(e.target.value)}
-                className="pl-8 mt-1 p-2 w-full bg-[#F1F3F6] border rounded-md focus:outline-none focus:ring focus:border-blue-300"
-              />
-            </div>
-            <div className="mb-4 relative">
-              <span className="absolute inset-y-0 left-0 flex items-center pl-2">
-                <Image priority src={arrive} alt={""} />
-              </span>
+              <div className="mb-4 relative">
+                <span className="absolute inset-y-0 left-0 flex items-center pl-2">
+                  <Image priority src={depart} alt={""} />
+                </span>
+                <input
+                  type="text"
+                  id="villeDepart"
+                  placeholder="Ville de départ"
+                  value={villeDepart}
+                  onChange={(e) => setVilleDepart(e.target.value)}
+                  className="pl-8 mt-1 p-2 w-full bg-[#F1F3F6] border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+                />
+              </div>
+              <div className="mb-4 relative">
+                <span className="absolute inset-y-0 left-0 flex items-center pl-2">
+                  <Image priority src={arrive} alt={""} />
+                </span>
                 <input
                   type="text"
                   id="villeArrivee"
@@ -264,17 +263,14 @@ export default function Result() {
                 onClick={handleSwitchCities}
                 className="absolute bg-white top-1/2 right-4 transform -translate-y-1/2 flex items-center justify-center w-12 h-12 p-3 rounded-full border border-var(--www_kombo_co_fr_app_round_2_1_29_2024-02-14_2024-03-30_Paris_Bordeaux_outward_results_1160x880_default-Link-Water, #DEE7F4) bg-var(--www_kombo_co_fr_app_round_2_1_29_2024-02-14_2024-03-30_Paris_Bordeaux_outward_results_1160x880_default-Nero, #FFF)"
               >
-                 <span className="absolute inset-y-0 left-0 flex items-center pl-3">
-                <Image priority src={arrowblue} alt={""} />
-              </span>
+                <span className="absolute inset-y-0 left-0 flex items-center pl-3">
+                  <Image priority src={arrowblue} alt={""} />
+                </span>
                 {/* Le contenu de la div */}
               </button>
             </div>
             <div className="mb-4 flex">
               <div className="mr-2 w-1/2 relative">
-                 <span className="absolute inset-y-0 left-0 flex items-center pl-2">
-                <Image priority src={calendar} alt={""} />
-              </span>
                 <input
                   type="date"
                   id="DateDepart"
@@ -312,7 +308,7 @@ export default function Result() {
               </div>
             </div>
             <div className="mb-4 relative">
-               <span className="absolute inset-y-0 left-0 flex items-center pl-2">
+              <span className="absolute inset-y-0 left-0 flex items-center pl-2">
                 <Image priority src={passagers} alt={""} />
               </span>
               <input
@@ -339,8 +335,8 @@ export default function Result() {
           <div className="mb-4 flex space-x-4">
             <button
               onClick={() => {
-                handleDateChange(-1)
-                setSelectedButton(0)
+                handleDateChange(-1);
+                setSelectedButton(0);
               }}
               className={`w-[130px] h-[38px] p-[9px 27.38px 9px 27.72px] border-[1px] border-[#838383] flex justify-center items-center rounded-md text-[#838383] ${
                 selectedButton === 0
@@ -352,8 +348,8 @@ export default function Result() {
             </button>
             <button
               onClick={() => {
-                handleDateChange(0)
-                setSelectedButton(1)
+                handleDateChange(0);
+                setSelectedButton(1);
               }}
               className={`w-[130px] h-[38px] p-[9px 27.38px 9px 27.72px] px-4 border-[1px] border-[#838383] flex justify-center items-center rounded-md text-[#838383] ${
                 selectedButton === 1
@@ -365,8 +361,8 @@ export default function Result() {
             </button>
             <button
               onClick={() => {
-                handleDateChange(1)
-                setSelectedButton(2)
+                handleDateChange(1);
+                setSelectedButton(2);
               }}
               className={`w-[130px] h-[38px] p-[9px 27.38px 9px 27.72px] border-[1px] border-[#838383] flex justify-center items-center rounded-md text-[#838383] ${
                 selectedButton === 2
@@ -402,7 +398,8 @@ export default function Result() {
                       ? "text-[#132968]"
                       : "text-[#ACACAF]"
                   }`}
-                ><Image priority src={train} alt={""} />
+                >
+                  <Image priority src={train} alt={""} />
                   Aucun résultat
                 </p>
               )}
@@ -429,8 +426,8 @@ export default function Result() {
                       ? "text-[#132968]"
                       : "text-[#ACACAF]"
                   }`}
-                  >
-                    <Image priority src={bus} alt={""} />
+                >
+                  <Image priority src={bus} alt={""} />
                   Aucun résultat
                 </p>
               )}
@@ -458,8 +455,8 @@ export default function Result() {
                       ? "text-[#132968]"
                       : "text-[#ACACAF]"
                   }`}
-                  >
-                    <Image priority src={avion} alt={""} />
+                >
+                  <Image priority src={avion} alt={""} />
                   Aucun résultat
                 </p>
               )}
@@ -508,7 +505,7 @@ export default function Result() {
                           <p className="text-sm text-[#838383]">
                             {info.NombrePassagers}
                           </p>
-                           <Image priority src={icon} alt={""} />
+                          <Image priority src={icon} alt={""} />
                         </span>
                         <p className="font-extrabold text-2xl text-[#208CFB]">
                           {info.Prix * info.NombrePassagers}€
@@ -548,5 +545,5 @@ export default function Result() {
         </div>
       </div>
     </>
-  )
+  );
 }
