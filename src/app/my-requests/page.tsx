@@ -1,33 +1,66 @@
 "use client";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Navbar from "../components/Layout/Navbar";
 import Request from "../components/Requests/Request";
+import ValidateData from "../models/ValidateData";
 import routes from "../routes";
 
 export default function Page() {
-  const [request, setRequest] = useState<Array<any>>();
-  const [user, setUser] = useState<Array<any>>();
+  const [request, setRequest] = useState<Array<ValidateData>>();
+  const [user, setUser] = useState<any>();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      if (typeof window !== "undefined" && window.localStorage) {
-        const requests = sessionStorage.getItem("request");
-        const user = sessionStorage.getItem("user");
+  const router = useRouter();
 
-        if (requests && user) {
-          setRequest(JSON.parse(requests));
-          setUser(JSON.parse(user));
-        }
+  const fetchData = async () => {
+    if (typeof window !== "undefined" && window.localStorage) {
+      const requests = sessionStorage.getItem("request");
+      const user = sessionStorage.getItem("user");
 
-        sessionStorage.removeItem("request");
-        sessionStorage.removeItem("user");
+      if (requests && user) {
+        setRequest(JSON.parse(requests));
+        setUser(JSON.parse(user));
+        console.log(JSON.parse(requests));
       }
 
-      return [];
-    };
+      sessionStorage.removeItem("request");
+      sessionStorage.removeItem("user");
+    }
+
+    return [];
+  };
+
+  useEffect(() => {
     fetchData();
-  }, []);
+  }, [request]);
+
+  const validateRequest = async (
+    idRequest: number,
+    validateStatus?: boolean
+  ) => {
+    try {
+      const res = await fetch("http://localhost:3030/request", {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          matricule: user.matricule,
+          idRequest,
+          validateStatus: validateStatus ? "Validée" : "Refusée",
+        }),
+      });
+
+      if (!res.ok) {
+        throw new Error(`HTTP error! Status: ${res.status}`);
+      }
+
+      router.push(routes.home, { scroll: true });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <>
@@ -36,14 +69,14 @@ export default function Page() {
         {request ? (
           <>
             <h1 className="text-center font-bold text-5xl m-14">
-              Demandes de remboursement de {user}
+              Demandes de remboursement de {user?.firstName}
             </h1>
             <div className="flex flex-col gap-10">
               {request &&
                 request.map((request) => (
                   <div
                     key={request.id}
-                    className="fborder-2 mx-32 py-6 px-4 rounded-lg shadow-2xl"
+                    className="border-2 mx-32 py-6 px-4 rounded-lg shadow-2xl"
                   >
                     <div className="flex justify-between">
                       <div className="flex items-center gap-2 mb-2">
@@ -67,8 +100,24 @@ export default function Page() {
                         Télécharger les pièces jointes
                       </button>
                     </div>
-
                     <Request request={request} />
+
+                    {request.status == "En attente" && user.isManager && (
+                      <div className="flex justify-center gap-2 mt-4">
+                        <button
+                          onClick={() => validateRequest(request.id, true)}
+                          className="bg-black text-white text-xs font-semibold rounded-lg px-6 py-1 bg-green-700"
+                        >
+                          Valider la demande
+                        </button>
+                        <button
+                          onClick={() => validateRequest(request.id)}
+                          className="bg-black text-white text-xs font-semibold rounded-lg px-6 py-1 bg-red-700"
+                        >
+                          Rejeter la demande
+                        </button>
+                      </div>
+                    )}
                   </div>
                 ))}
             </div>

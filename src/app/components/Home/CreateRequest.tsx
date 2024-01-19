@@ -1,5 +1,6 @@
 "use client";
 import FormData from "@/app/models/FormData";
+import routes from "@/app/routes";
 import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
 import Form from "./HomeForm/Form";
@@ -72,7 +73,7 @@ export default function CreateRequest() {
       setDate("");
       setMatricule("");
 
-      router.push("/result", { scroll: false });
+      router.push(routes.result, { scroll: true });
     } catch (error) {
       console.log(error);
     }
